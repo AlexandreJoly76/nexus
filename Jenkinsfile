@@ -35,10 +35,11 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: env.NEXUS_CRED,
                 usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
-                dir('microservices/user-service') {
-                    sh 'mvn deploy -s ../../settings.xml'
+                    dir('microservices/user-service') {
+                        // On passe explicitement les variables à Maven via -D
+                        sh "mvn deploy -s ../../settings.xml -Denv.NEXUS_USER=${NEXUS_USER} -Denv.NEXUS_PASS=${NEXUS_PASS}"
+                    }
                 }
-            }
             }
         }
 
