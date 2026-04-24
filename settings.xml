@@ -2,14 +2,14 @@
   <servers>
     <server>
       <id>nexus-releases</id>
-      <username>${env.NEXUS_USER}</username>
-      <password>${env.NEXUS.PASS}</password>
+      <username>${nexus.user}</username>
+      <password>${nexus.pass}</password>
     </server>
 
     <server>
       <id>nexus-snapshots</id>
-      <username>${env.NEXUS_USER}</username>
-      <password>${env.NEXUS.PASS}</password>
+      <username>${nexus.user}</username>
+      <password>${nexus.pass}</password>
     </server>
   </servers>
   <mirrors>
