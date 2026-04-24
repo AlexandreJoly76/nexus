@@ -20,9 +20,11 @@ jobs:
 
     - name: Build & Test
       run: mvn clean verify
+      working-directory: microservices/user-service
 
     - name: Deploy to Nexus (Maven)
       run: mvn deploy
+      working-directory: microservices/user-service
       env:
         MAVEN_USERNAME: admin
         MAVEN_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
