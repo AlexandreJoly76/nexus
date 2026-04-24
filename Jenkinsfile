@@ -18,6 +18,7 @@ pipeline {
         CHROME_BIN = '/usr/bin/chromium'
         // SONAR_SERVER_NAME = 'sonar-server'
         FINAL_EMAIL = "${env.DEVOPS_EMAIL ?: 'ton.email@gmail.com'}"
+        NEXUS_CRED = 'nexus-creds'
     }
 
     stages {
