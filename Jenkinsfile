@@ -8,7 +8,7 @@ pipeline {
     tools {
         maven 'maven-3'
         jdk 'jdk-17'
-        nodejs 'node-22
+        nodejs 'node-22'
     }
 
     environment {
