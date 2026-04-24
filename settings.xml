@@ -16,7 +16,7 @@
         <mirror>
             <id>maven-public</id>
             <mirrorOf>*</mirrorOf>
-            <url>http://localhost:4242/repository/maven-public/</url>
+            <url>http://172.16.3.230/repository/maven-public/</url>
         </mirror>
     </mirrors>
 </settings>
