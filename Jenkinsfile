@@ -8,6 +8,7 @@ pipeline {
     tools {
         maven 'maven-3'
         jdk 'jdk-17'
+        nodejs 'node-22
     }
 
     environment {
@@ -44,6 +45,9 @@ pipeline {
         }
 
         stage('Build Frontend') {
+            agent {
+                docker { image 'node:22-alpine' }
+            }
             steps {
                 dir('frontend/buy01-web') {
                     sh 'npm install'
