@@ -1,0 +1,22 @@
+<settings>
+  <servers>
+    <server>
+      <id>nexus-releases</id>
+      <username>${env.NEXUS_USER}</username>
+      <password>${env.NEXUS.PASS}</password>
+    </server>
+
+    <server>
+      <id>nexus-snapshots</id>
+      <username>${env.NEXUS_USER}</username>
+      <password>${env.NEXUS.PASS}</password>
+    </server>
+  </servers>
+  <mirrors>
+        <mirror>
+            <id>maven-public</id>
+            <mirrorOf>*</mirrorOf>
+            <url>http://localhost:4242/repository/maven-public/</url>
+        </mirror>
+    </mirrors>
+</settings>
