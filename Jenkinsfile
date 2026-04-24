@@ -36,7 +36,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: NEXUS_CRED,
                 usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
                 dir('microservices/user-service') {
-                    sh 'mvn deploy'
+                    sh 'mvn deploy -s ../../settings.xml'
                 }
             }
             }
