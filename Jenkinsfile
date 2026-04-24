@@ -12,7 +12,7 @@ pipeline {
 
     environment {
         FINAL_EMAIL = "${env.DEVOPS_EMAIL ?: 'ton.email@gmail.com'}"
-        NEXUS_CRED = "1"
+        NEXUS_CRED = "nexus-creds"
     }
 
     stages {
@@ -33,15 +33,10 @@ pipeline {
 
         stage('Deploy to Nexus (Maven)') {
             steps {
-                withCredentials([usernamePassword(credentialsId: "1",
+                withCredentials([usernamePassword(credentialsId: env.NEXUS_CRED,
                 usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
                 dir('microservices/user-service') {
-                    
-                    sh """ 
-                    mvn deploy -s ../../settings.xml
-                    -Dnexus.user=$NEXUS_USER \
-                    -Dnexus.pass=$NEXUS_PASS
-                    """
+                    sh 'mvn deploy -s ../../settings.xml'
                 }
             }
             }
