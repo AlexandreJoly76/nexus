@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.buy01</groupId>
 	<artifactId>user-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1.${project.build.timestamp}</version>
 	<name>user-service</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -143,5 +143,14 @@
 			</plugin>
 		</plugins>
 	</build>
-
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://localhost:4242/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://localhost:4242/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

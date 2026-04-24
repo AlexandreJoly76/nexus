@@ -1,1 +1,6 @@
 jenkins_home
+node_modules/
+.env
+dist/
+.idea
+.vscode

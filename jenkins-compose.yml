@@ -6,7 +6,7 @@ services:
     # image: jenkins/jenkins:lts-jdk17  <-- On commente ou supprime cette ligne
     # ------------------------
 
-    container_name: buy01-jenkins
+    container_name: nexus
     user: root
     privileged: true
     ports:
