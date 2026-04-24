@@ -17,7 +17,7 @@ pipeline {
     environment {
         CHROME_BIN = '/usr/bin/chromium'
         // SONAR_SERVER_NAME = 'sonar-server'
-        FINAL_EMAIL = "${env.DEVOPS_EMAIL ?: 'ton.email@gmail.com'}"
+        // FINAL_EMAIL = "${env.DEVOPS_EMAIL ?: 'ton.email@gmail.com'}"
         NEXUS_CRED = 'nexus-creds'
     }
 
@@ -115,12 +115,12 @@ pipeline {
         }
     }
 
-    post {
-        success {
-             mail to: "${env.FINAL_EMAIL}", subject: "✅ SUCCESS Buy01", body: "Build OK: ${env.BUILD_URL}"
-        }
-        failure {
-             mail to: "${env.FINAL_EMAIL}", subject: "🚨 FAILED Buy01", body: "Check logs: ${env.BUILD_URL}"
-        }
-    }
+    // post {
+    //     success {
+    //          mail to: "${env.FINAL_EMAIL}", subject: "✅ SUCCESS Buy01", body: "Build OK: ${env.BUILD_URL}"
+    //     }
+    //     failure {
+    //          mail to: "${env.FINAL_EMAIL}", subject: "🚨 FAILED Buy01", body: "Check logs: ${env.BUILD_URL}"
+    //     }
+    // }
 }
