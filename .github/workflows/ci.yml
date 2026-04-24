@@ -30,10 +30,10 @@ jobs:
         MAVEN_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build -t localhost:2323/my-web-app:${{ github.sha }} .
+      run: docker build -t localhost:4242/my-web-app:${{ github.sha }} .
 
     - name: Login to Nexus Docker
       run: echo "${{ secrets.NEXUS_PASSWORD }}" | docker login localhost:4242 -u admin --password-stdin
 
     - name: Push Docker image
-      run: docker push localhost:5001/my-web-app:${{ github.sha }}
+      run: docker push localhost:4242/my-web-app:${{ github.sha }}
