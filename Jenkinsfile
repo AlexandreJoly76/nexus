@@ -33,7 +33,7 @@ pipeline {
 
         stage('Deploy to Nexus (Maven)') {
             steps {
-                withCredentials([usernamePassword(credentialsId: NEXUS_CRED,
+                withCredentials([usernamePassword(credentialsId: env.NEXUS_CRED,
                 usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
                 dir('microservices/user-service') {
                     sh 'mvn deploy -s ../../settings.xml'
